@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/second_screen.dart';
 
 class FirstRoute extends StatelessWidget {
@@ -14,10 +15,7 @@ class FirstRoute extends StatelessWidget {
         child: ElevatedButton(
           child: const Text('Open route'),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const SecondRoute()),
-            );
+            RoutesHelper.pushScreen(context, const SecondRoute());
           },
         ),
       ),
