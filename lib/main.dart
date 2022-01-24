@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/first_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/welcome_screen/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Welcome to Flutter',
-      home: FirstRoute(),
+      title: 'Happy planting time',
+      home: WelcomeScreen(),
     );
   }
 }
