@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/images_path_helper/images_path_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/login_screen/login_screen.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/register_screen/register_screen.dart';
@@ -10,79 +9,69 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Welcome Screen'),
-        ),
-        body: _buildBody(context));
+      appBar: AppBar(
+        title: const Text('Welcome Screen'),
+      ),
+      body: _buildBody(context),
+    );
   }
 
   Widget _buildBody(BuildContext context) {
-    return Center(
-        child: Padding(
-      padding: const EdgeInsets.all(20.0),
+    return Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+        colors: [Colors.white, Colors.lightBlueAccent],
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+      )),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Spacer(),
-          Image.asset(
-            ImagesPathHelper.imagePath("hello.png"),
-          ),
           const Spacer(),
           const Text(
             'Welcome',
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 50,
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          Text(
-            'Create an account and start enjoying IoT planting',
-            style: TextStyle(
-              color: Colors.black.withOpacity(0.5),
-            ),
+          const SizedBox(height: 20),
+          const Text(
+            'Create a new account to have fun with IoT planting.',
+            textAlign: TextAlign.center,
           ),
           const Spacer(),
           SizedBox(
             height: 40,
-            width: MediaQuery.of(context).size.width * 0.8,
+            width: MediaQuery.of(context).size.width * 0.6,
             child: ElevatedButton(
               onPressed: () {
-                RoutesHelper.pushScreen(
-                  context,
-                  const RegisterScreen(),
-                );
+                RoutesHelper.pushScreen(context, const RegisterScreen());
               },
               child: const Text('Getting started'),
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Already have an account?',
-                style: TextStyle(
-                  color: Colors.black.withOpacity(0.5),
-                ),
-              ),
+              const Text('Already have an account?'),
               TextButton(
                 onPressed: () {
-                  RoutesHelper.pushScreen(
-                    context,
-                    const LoginScreen(),
-                  );
+                  RoutesHelper.pushScreen(context, const LoginScreen());
                 },
-                child: const Text("Login now"),
+                child: const Text(
+                  'Login now',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
               )
             ],
           ),
           const Spacer(),
         ],
       ),
-    ));
+    );
   }
 }

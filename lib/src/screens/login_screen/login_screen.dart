@@ -11,15 +11,28 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Login Screen'),
       ),
-      body: Center(
-        child: ElevatedButton(
-          child: const Text('Register'),
-          onPressed: () {
-            RoutesHelper.pushScreen(
-              context,
-              const RegisterScreen(),
-            );
-          },
+      body: _buildBody(context),
+    );
+  }
+
+  Widget _buildBody(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+        colors: [Colors.white, Colors.lightBlueAccent],
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+      )),
+      child: Center(
+        child: SizedBox(
+          height: 40,
+          width: MediaQuery.of(context).size.width * 0.8,
+          child: ElevatedButton(
+            child: const Text('Register'),
+            onPressed: () {
+              RoutesHelper.pushScreen(context, const RegisterScreen());
+            },
+          ),
         ),
       ),
     );
