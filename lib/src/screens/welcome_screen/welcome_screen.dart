@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/default_background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/login_screen/login_screen.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/registration_screen/registration_screen.dart';
 
@@ -17,13 +18,7 @@ class WelcomeScreen extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          gradient: LinearGradient(
-        colors: [Colors.white, Colors.lightBlueAccent],
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-      )),
+    return DefaultBackgroundWidget.basicColor(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -41,37 +36,45 @@ class WelcomeScreen extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const Spacer(),
-          SizedBox(
-            height: 40,
-            width: MediaQuery.of(context).size.width * 0.6,
-            child: ElevatedButton(
-              onPressed: () {
-                RoutesHelper.pushScreen(context, const RegistrationScreen());
-              },
-              child: const Text('Getting started'),
-            ),
-          ),
+          _buildRegisterButton(context),
           const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text('Already have an account?'),
-              TextButton(
-                onPressed: () {
-                  RoutesHelper.pushScreen(context, const LoginScreen());
-                },
-                child: const Text(
-                  'Login now',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              )
-            ],
-          ),
+          _buildLoginButton(context),
           const Spacer(),
         ],
       ),
     );
+  }
+
+  Widget _buildRegisterButton(BuildContext context) {
+    return SizedBox(
+          height: 40,
+          width: MediaQuery.of(context).size.width * 0.6,
+          child: ElevatedButton(
+            onPressed: () {
+              RoutesHelper.pushScreen(context, const RegistrationScreen());
+            },
+            child: const Text('Getting started'),
+          ),
+        );
+  }
+
+  Widget _buildLoginButton(BuildContext context) {
+    return Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('Already have an account?'),
+            TextButton(
+              onPressed: () {
+                RoutesHelper.pushScreen(context, const LoginScreen());
+              },
+              child: const Text(
+                'Login now',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            )
+          ],
+        );
   }
 }

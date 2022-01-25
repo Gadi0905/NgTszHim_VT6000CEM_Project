@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/default_background_widget/default_background_widget.dart';
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -14,13 +15,6 @@ class RegistrationScreen extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          gradient: LinearGradient(
-        colors: [Colors.white, Colors.lightBlueAccent],
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-      )),
-    );
+    return DefaultBackgroundWidget.basicColor();
   }
 }

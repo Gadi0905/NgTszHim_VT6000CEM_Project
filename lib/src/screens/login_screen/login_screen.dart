@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/registration_screen/registration_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/default_background_widget/default_background_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -16,25 +15,6 @@ class LoginScreen extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-          gradient: LinearGradient(
-        colors: [Colors.white, Colors.lightBlueAccent],
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-      )),
-      child: Center(
-        child: SizedBox(
-          height: 40,
-          width: MediaQuery.of(context).size.width * 0.8,
-          child: ElevatedButton(
-            child: const Text('Registration Screen'),
-            onPressed: () {
-              RoutesHelper.pushScreen(context, const RegistrationScreen());
-            },
-          ),
-        ),
-      ),
-    );
+    return DefaultBackgroundWidget.basicColor();
   }
 }
