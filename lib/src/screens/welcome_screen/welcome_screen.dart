@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/login_screen/login_screen.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/register_screen/register_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/registration_screen/registration_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -46,7 +46,7 @@ class WelcomeScreen extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.6,
             child: ElevatedButton(
               onPressed: () {
-                RoutesHelper.pushScreen(context, const RegisterScreen());
+                RoutesHelper.pushScreen(context, const RegistrationScreen());
               },
               child: const Text('Getting started'),
             ),

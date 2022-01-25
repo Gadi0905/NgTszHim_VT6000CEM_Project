@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/register_screen/register_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/registration_screen/registration_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -28,9 +28,9 @@ class LoginScreen extends StatelessWidget {
           height: 40,
           width: MediaQuery.of(context).size.width * 0.8,
           child: ElevatedButton(
-            child: const Text('Register'),
+            child: const Text('Registration Screen'),
             onPressed: () {
-              RoutesHelper.pushScreen(context, const RegisterScreen());
+              RoutesHelper.pushScreen(context, const RegistrationScreen());
             },
           ),
         ),
