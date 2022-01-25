@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/default_appbar_widget/default_appbar_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/default_background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/login_screen/login_screen.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/registration_screen/registration_screen.dart';
@@ -10,9 +11,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Welcome Screen'),
-      ),
+      appBar: DefaultAppBarWidget.basicColor(title: 'Welcome Screen'),
       body: _buildBody(context),
     );
   }
