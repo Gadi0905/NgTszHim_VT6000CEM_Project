@@ -52,8 +52,6 @@ app.*.map.json
 # See https://www.dartlang.org/guides/libraries/private-files
 
 # Files and directories created by pub
-.dart_tool/
-.packages
 build/
 # If you're building an application, you may want to check-in your pubspec.lock
 pubspec.lock
@@ -74,9 +72,6 @@ doc/api/
 *.js.deps
 *.js.map
 
-.flutter-plugins
-.flutter-plugins-dependencies
-
 ### Dart Patch ###
 # dotenv environment variables file
 .env
@@ -92,12 +87,8 @@ doc/api/
 
 ### Flutter ###
 # Flutter/Dart/Pub related
-**/doc/api/
 .fvm/
-.pub-cache/
-.pub/
 coverage/
-lib/generated_plugin_registrant.dart
 # For library packages, don’t commit the pubspec.lock file.
 # Regenerating the pubspec.lock file lets you test your package against the latest compatible versions of its dependencies.
 # See https://dart.dev/guides/libraries/private-files#pubspeclock
@@ -130,7 +121,6 @@ lib/generated_plugin_registrant.dart
 **/ios/**/profile
 **/ios/**/xcuserdata
 **/ios/.generated/
-**/ios/Flutter/.last_build_id
 **/ios/Flutter/App.framework
 **/ios/Flutter/Flutter.framework
 **/ios/Flutter/Flutter.podspec
@@ -161,7 +151,6 @@ lib/generated_plugin_registrant.dart
 *.dex
 
 # Java class files
-*.class
 
 # Generated files
 bin/
@@ -182,7 +171,6 @@ local.properties
 proguard/
 
 # Log Files
-*.log
 
 # Android Studio
 /*/build/
@@ -192,9 +180,7 @@ proguard/
 /*/*/production
 captures/
 .navigation/
-*.ipr
 *~
-*.swp
 
 # Keystore files
 *.jks
@@ -213,8 +199,6 @@ gen-external-apklibs
 obj/
 
 # IntelliJ IDEA
-*.iml
-*.iws
 /out/
 
 # User-specific configurations
@@ -244,7 +228,6 @@ obj/
 .idea/navEditor.xml
 
 # OS-specific files
-.DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
