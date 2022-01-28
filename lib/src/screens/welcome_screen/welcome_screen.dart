@@ -46,34 +46,34 @@ class WelcomeScreen extends StatelessWidget {
 
   Widget _buildRegisterButton(BuildContext context) {
     return SizedBox(
-          height: 40,
-          width: MediaQuery.of(context).size.width * 0.6,
-          child: ElevatedButton(
-            onPressed: () {
-              RoutesHelper.pushScreen(context, const RegistrationScreen());
-            },
-            child: const Text('Getting started'),
-          ),
-        );
+      height: 40,
+      width: MediaQuery.of(context).size.width * 0.6,
+      child: ElevatedButton(
+        onPressed: () {
+          RoutesHelper.pushScreen(context, const RegistrationScreen());
+        },
+        child: const Text('Getting started'),
+      ),
+    );
   }
 
   Widget _buildLoginButton(BuildContext context) {
     return Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Already have an account?'),
-            TextButton(
-              onPressed: () {
-                RoutesHelper.pushScreen(context, const LoginScreen());
-              },
-              child: const Text(
-                'Login now',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            )
-          ],
-        );
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text('Already have an account?'),
+        TextButton(
+          onPressed: () {
+            RoutesHelper.pushScreen(context, const LoginScreen());
+          },
+          child: const Text(
+            'Login now',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        )
+      ],
+    );
   }
 }
