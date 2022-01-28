@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/images_path_helper/images_path_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/register_button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/text_login_button_widget.dart';
 
 class RegistrationScreen extends StatelessWidget {
@@ -72,7 +73,7 @@ class RegistrationScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    _buildRegisterButton(context),
+                    RegisterButtonWidget.basicColor(context, 'Create an account'),
                     const SizedBox(height: 10),
                     TextLoginButtonWidget.basicColor(context),
                   ],
@@ -91,17 +92,6 @@ class RegistrationScreen extends StatelessWidget {
       ImagesPathHelper.imagePath('tree_seedlings.png'),
       width: 150,
       height: 150,
-    );
-  }
-
-  Widget _buildRegisterButton(BuildContext context) {
-    return SizedBox(
-      height: 40,
-      width: MediaQuery.of(context).size.width,
-      child: ElevatedButton(
-        onPressed: () {},
-        child: const Text('Create an account'),
-      ),
     );
   }
 }

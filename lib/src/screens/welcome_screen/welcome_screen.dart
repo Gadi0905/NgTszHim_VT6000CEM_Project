@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/images_path_helper/images_path_helper.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/register_button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/text_login_button_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/registration_screen/registration_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -28,7 +27,7 @@ class WelcomeScreen extends StatelessWidget {
           const Spacer(),
           _buildImage(context),
           const Spacer(),
-          _buildRegisterButton(context),
+          RegisterButtonWidget.basicColor(context, 'Getting started'),
           const SizedBox(height: 10),
           TextLoginButtonWidget.basicColor(context),
           const Spacer(),
@@ -70,19 +69,6 @@ class WelcomeScreen extends StatelessWidget {
       ImagesPathHelper.imagePath('tree_seedlings.png'),
       width: 150,
       height: 150,
-    );
-  }
-
-  Widget _buildRegisterButton(BuildContext context) {
-    return SizedBox(
-      height: 40,
-      width: MediaQuery.of(context).size.width * 0.8,
-      child: ElevatedButton(
-        onPressed: () {
-          RoutesHelper.pushScreen(context, const RegistrationScreen());
-        },
-        child: const Text('Getting started'),
-      ),
     );
   }
 }
