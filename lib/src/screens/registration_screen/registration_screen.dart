@@ -14,6 +14,8 @@ class RegistrationScreen extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context) {
-    return DefaultBackgroundWidget.basicColor();
+    return DefaultBackgroundWidget.basicColor(
+      context: context,
+    );
   }
 }

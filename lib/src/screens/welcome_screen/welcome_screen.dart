@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/images_path_helper/images_path_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/default_appbar_widget/default_appbar_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/default_background_widget/default_background_widget.dart';
@@ -18,25 +19,17 @@ class WelcomeScreen extends StatelessWidget {
 
   Widget _buildBody(BuildContext context) {
     return DefaultBackgroundWidget.basicColor(
+      context: context,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Spacer(),
-          const Text(
-            'Welcome',
-            style: TextStyle(
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(height: 20),
-          const Text(
-            'Create a new account to have fun with IoT planting.',
-            textAlign: TextAlign.center,
-          ),
+          _buildWelcomeText(context),
+          const Spacer(),
+          _buildImage(context),
           const Spacer(),
           _buildRegisterButton(context),
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
           _buildLoginButton(context),
           const Spacer(),
         ],
@@ -44,10 +37,46 @@ class WelcomeScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildWelcomeText(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.8,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          Text(
+            'Welcome',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 10),
+          Text(
+            'Create a new account to have fun with IoT planting.',
+            textAlign: TextAlign.start,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildImage(BuildContext context) {
+    return Image.asset(
+      ImagesPathHelper.imagePath('tree_seedlings.png'),
+      width: 150,
+      height: 150,
+    );
+  }
+
   Widget _buildRegisterButton(BuildContext context) {
     return SizedBox(
       height: 40,
-      width: MediaQuery.of(context).size.width * 0.6,
+      width: MediaQuery.of(context).size.width * 0.8,
       child: ElevatedButton(
         onPressed: () {
           RoutesHelper.pushScreen(context, const RegistrationScreen());
@@ -68,9 +97,7 @@ class WelcomeScreen extends StatelessWidget {
           },
           child: const Text(
             'Login now',
-            style: TextStyle(
-              color: Colors.white,
-            ),
+            style: TextStyle(color: Colors.blue),
           ),
         )
       ],
