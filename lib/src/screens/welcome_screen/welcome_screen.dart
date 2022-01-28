@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/images_path_helper/images_path_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/default_appbar_widget/default_appbar_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/default_background_widget/default_background_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/login_screen/login_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/text_login_button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/registration_screen/registration_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -30,7 +30,7 @@ class WelcomeScreen extends StatelessWidget {
           const Spacer(),
           _buildRegisterButton(context),
           const SizedBox(height: 10),
-          _buildLoginButton(context),
+          TextLoginButtonWidget.basicColor(context),
           const Spacer(),
         ],
       ),
@@ -83,24 +83,6 @@ class WelcomeScreen extends StatelessWidget {
         },
         child: const Text('Getting started'),
       ),
-    );
-  }
-
-  Widget _buildLoginButton(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Text('Already have an account?'),
-        TextButton(
-          onPressed: () {
-            RoutesHelper.pushScreen(context, const LoginScreen());
-          },
-          child: const Text(
-            'Login now',
-            style: TextStyle(color: Colors.blue),
-          ),
-        )
-      ],
     );
   }
 }

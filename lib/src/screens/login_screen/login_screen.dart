@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/default_appbar_widget/default_appbar_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/default_background_widget/default_background_widget.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
