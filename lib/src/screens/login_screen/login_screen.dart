@@ -8,6 +8,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: DefaultAppBarWidget.basicColor(title: 'Login Screen'),
       body: _buildBody(context),
     );

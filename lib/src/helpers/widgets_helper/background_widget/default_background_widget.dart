@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class DefaultBackgroundWidget {
+  // the basic color of background widget
   static basicColor({
     Color? topColor,
     Color? middleColor,

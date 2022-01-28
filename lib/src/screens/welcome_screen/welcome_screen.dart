@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/images_path_helper/images_path_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/register_button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/text_login_button_widget.dart';
@@ -25,7 +25,7 @@ class WelcomeScreen extends StatelessWidget {
           const Spacer(),
           _buildWelcomeText(context),
           const Spacer(),
-          _buildImage(context),
+          AssetImageWidget.basicImage(context, 'tree_seedlings.png', 150, 150),
           const Spacer(),
           RegisterButtonWidget.basicColor(context, 'Getting started'),
           const SizedBox(height: 10),
@@ -61,14 +61,6 @@ class WelcomeScreen extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildImage(BuildContext context) {
-    return Image.asset(
-      ImagesPathHelper.imagePath('tree_seedlings.png'),
-      width: 150,
-      height: 150,
     );
   }
 }
