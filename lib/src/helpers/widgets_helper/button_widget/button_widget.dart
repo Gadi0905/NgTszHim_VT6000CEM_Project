@@ -6,6 +6,8 @@ class ButtonWidget {
     required BuildContext context,
     required Function() onPressItem,
     String? title,
+    Color? backgroundColor,
+    Color? textColor,
   }) {
     return SizedBox(
       height: 50,
@@ -13,7 +15,7 @@ class ButtonWidget {
       child: ElevatedButton(
         onPressed: onPressItem,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.white),
+          backgroundColor: MaterialStateProperty.all(backgroundColor ?? Colors.white),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(25.0),
@@ -22,8 +24,8 @@ class ButtonWidget {
         ),
         child: Text(
           title ?? 'Button',
-          style: const TextStyle(
-            color: Colors.blue,
+          style: TextStyle(
+            color: textColor ?? Colors.blue,
             fontWeight: FontWeight.bold,
           ),
         ),

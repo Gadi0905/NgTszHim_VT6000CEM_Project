@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
@@ -13,7 +12,6 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DefaultAppBarWidget.basicColor(title: 'Welcome Screen'),
       body: _buildBody(context),
     );
   }
@@ -56,10 +54,10 @@ class WelcomeScreen extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.8,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: const [
           Text(
-            'Welcome',
+            'Planting Prince',
             style: TextStyle(
               color: Colors.white,
               fontSize: 30,
@@ -68,8 +66,8 @@ class WelcomeScreen extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Text(
-            'Create a new account to have fun with IoT planting.',
-            textAlign: TextAlign.start,
+            'Hope you enjoy planting',
+            textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white,
               fontSize: 16,

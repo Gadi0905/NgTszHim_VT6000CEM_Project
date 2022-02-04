@@ -10,4 +10,9 @@ class RoutesHelper {
   static pop(context) {
     Navigator.pop(context);
   }
+
+  // back to first page
+  static popToRoot(context) {
+    Navigator.of(context).popUntil((route) => route.isFirst);
+  }
 }

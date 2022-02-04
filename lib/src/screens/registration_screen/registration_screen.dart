@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/login_screen/login_screen.dart';
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -11,7 +12,6 @@ class RegistrationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: DefaultAppBarWidget.basicColor(title: 'Registration Screen'),
       body: _buildBody(context),
     );
   }
@@ -19,42 +19,75 @@ class RegistrationScreen extends StatelessWidget {
   Widget _buildBody(BuildContext context) {
     return DefaultBackgroundWidget.basicColor(
       context: context,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Spacer(),
-          AssetImageWidget.basicImage(
-              context: context, width: 150, height: 150),
-          const Spacer(),
-          _buildCard(context),
-          const Spacer(),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(25)),
+                  child: IconButton(
+                    onPressed: () {
+                      RoutesHelper.popToRoot(context);
+                    },
+                    icon: const Icon(Icons.arrow_back_ios_new_rounded),
+                  ),
+                ),
+              ],
+            ),
+            const Spacer(),
+            AssetImageWidget.basicImage(
+                context: context, width: 150, height: 150),
+            const Spacer(),
+            _buildCard(context),
+            const Spacer(),
+          ],
+        ),
       ),
     );
   }
 
   Widget _buildCard(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.8,
-      child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              _buildNameField(),
-              const SizedBox(height: 20),
-              _buildEmailField(),
-              const SizedBox(height: 20),
-              _buildPasswordField(),
-              const SizedBox(height: 20),
-              ButtonWidget.basicStyle(
-                  context: context,
-                  title: 'Create an account',
-                  onPressItem: () {}),
-              const SizedBox(height: 10),
-            ],
-          ),
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            _buildNameField(),
+            const SizedBox(height: 20),
+            _buildEmailField(),
+            const SizedBox(height: 20),
+            _buildPasswordField(),
+            const SizedBox(height: 20),
+            ButtonWidget.basicStyle(
+              context: context,
+              title: 'Create an account',
+              backgroundColor: Colors.blue,
+              textColor: Colors.white,
+              onPressItem: () {
+                RoutesHelper.pushScreen(context, const RegistrationScreen());
+              },
+            ),
+            const SizedBox(height: 10),
+            ButtonWidget.basicStyle(
+              context: context,
+              title: 'Register',
+              backgroundColor: Colors.blue,
+              textColor: Colors.white,
+              onPressItem: () {
+                RoutesHelper.pushScreen(context, const LoginScreen());
+              },
+            ),
+          ],
         ),
       ),
     );
@@ -68,7 +101,7 @@ class RegistrationScreen extends StatelessWidget {
           decoration: const InputDecoration(
             icon: Icon(Icons.person),
             hintText: 'What do people call you?',
-            labelText: 'Name',
+            labelText: 'Your Name',
           ),
         ),
       ],
