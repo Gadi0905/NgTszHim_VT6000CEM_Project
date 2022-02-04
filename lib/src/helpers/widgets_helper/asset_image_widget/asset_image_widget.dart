@@ -4,7 +4,10 @@ import 'package:ngtszhim_vt6000cem_project/src/helpers/images_path_helper/images
 class AssetImageWidget {
   // the basic asset image widget
   static basicImage(
-      BuildContext context, String? image, double? width, double? height) {
+      {required BuildContext context,
+      String? image,
+      double? width,
+      double? height}) {
     return Image.asset(
       ImagesPathHelper.imagePath(image ?? 'tree_seedlings.png'),
       width: width ?? 100,

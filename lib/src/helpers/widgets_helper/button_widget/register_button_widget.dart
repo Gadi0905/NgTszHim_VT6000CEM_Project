@@ -4,7 +4,7 @@ import 'package:ngtszhim_vt6000cem_project/src/screens/registration_screen/regis
 
 class RegisterButtonWidget {
   // the basic color of register button
-  static basicColor(BuildContext context, String? title) {
+  static basicColor({required BuildContext context, String? title}) {
     return SizedBox(
       height: 40,
       width: MediaQuery.of(context).size.width * 0.8,

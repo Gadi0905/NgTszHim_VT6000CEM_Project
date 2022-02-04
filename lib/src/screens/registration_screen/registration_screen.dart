@@ -24,7 +24,8 @@ class RegistrationScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Spacer(),
-          AssetImageWidget.basicImage(context, 'tree_seedlings.png', 150, 150),
+          AssetImageWidget.basicImage(
+              context: context, width: 150, height: 150),
           const Spacer(),
           _buildCard(context),
           const Spacer(),
@@ -48,9 +49,12 @@ class RegistrationScreen extends StatelessWidget {
               const SizedBox(height: 20),
               _buildPasswordField(),
               const SizedBox(height: 20),
-              RegisterButtonWidget.basicColor(context, 'Create an account'),
+              RegisterButtonWidget.basicColor(
+                context: context,
+                title: 'Create an account',
+              ),
               const SizedBox(height: 10),
-              TextLoginButtonWidget.basicColor(context),
+              TextLoginButtonWidget.basicColor(context: context),
             ],
           ),
         ),

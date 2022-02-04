@@ -4,7 +4,7 @@ import 'package:ngtszhim_vt6000cem_project/src/screens/login_screen/login_screen
 
 class TextLoginButtonWidget {
   // the basic color of text login button
-  static basicColor(BuildContext context) {
+  static basicColor({required BuildContext context}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
