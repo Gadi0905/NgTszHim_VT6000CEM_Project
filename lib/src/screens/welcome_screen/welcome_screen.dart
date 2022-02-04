@@ -22,7 +22,9 @@ class WelcomeScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Spacer(),
+          const Spacer(
+            flex: 2,
+          ),
           AssetImageWidget.basicImage(
             context: context,
             width: 150,

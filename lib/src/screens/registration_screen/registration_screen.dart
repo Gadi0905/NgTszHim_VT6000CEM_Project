@@ -3,6 +3,7 @@ import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_help
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/text_button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/login_screen/login_screen.dart';
 
 class RegistrationScreen extends StatelessWidget {
@@ -78,11 +79,10 @@ class RegistrationScreen extends StatelessWidget {
               },
             ),
             const SizedBox(height: 10),
-            ButtonWidget.basicStyle(
+            TextButtonWidget.basicStyle(
               context: context,
-              title: 'Register',
-              backgroundColor: Colors.blue,
-              textColor: Colors.white,
+              question: 'Already have an account?',
+              title: 'Login Now',
               onPressItem: () {
                 RoutesHelper.pushScreen(context, const LoginScreen());
               },

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ButtonWidget {
-  // the basic style of register button
+  // the basic style of button
   static basicStyle({
     required BuildContext context,
     required Function() onPressItem,
@@ -15,7 +15,8 @@ class ButtonWidget {
       child: ElevatedButton(
         onPressed: onPressItem,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(backgroundColor ?? Colors.white),
+          backgroundColor:
+              MaterialStateProperty.all(backgroundColor ?? Colors.white),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(25.0),
