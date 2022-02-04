@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/register_button_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/text_login_button_widget.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/login_screen/login_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/registration_screen/registration_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -23,20 +25,27 @@ class WelcomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Spacer(),
-          _buildWelcomeText(context),
-          const Spacer(),
           AssetImageWidget.basicImage(
             context: context,
             width: 150,
             height: 150,
           ),
           const Spacer(),
-          RegisterButtonWidget.basicColor(
-            context: context,
-            title: 'Getting started',
-          ),
+          _buildWelcomeText(context),
+          const Spacer(),
+          ButtonWidget.basicStyle(
+              context: context,
+              title: 'Getting started',
+              onPressItem: () {
+                RoutesHelper.pushScreen(context, const RegistrationScreen());
+              }),
           const SizedBox(height: 10),
-          TextLoginButtonWidget.basicColor(context: context),
+          ButtonWidget.basicStyle(
+              context: context,
+              title: 'Login',
+              onPressItem: () {
+                RoutesHelper.pushScreen(context, const LoginScreen());
+              }),
           const Spacer(),
         ],
       ),

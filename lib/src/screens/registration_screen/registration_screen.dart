@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/register_button_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/text_login_button_widget.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
 
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -49,12 +48,11 @@ class RegistrationScreen extends StatelessWidget {
               const SizedBox(height: 20),
               _buildPasswordField(),
               const SizedBox(height: 20),
-              RegisterButtonWidget.basicColor(
-                context: context,
-                title: 'Create an account',
-              ),
+              ButtonWidget.basicStyle(
+                  context: context,
+                  title: 'Create an account',
+                  onPressItem: () {}),
               const SizedBox(height: 10),
-              TextLoginButtonWidget.basicColor(context: context),
             ],
           ),
         ),

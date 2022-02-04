@@ -14,9 +14,9 @@ class DefaultBackgroundWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            topColor ?? Colors.lightBlue,
-            middleColor ?? Colors.lightBlueAccent,
-            bottomColor ?? Colors.white
+            topColor ?? Colors.lightBlueAccent,
+            middleColor ?? Colors.lightBlue,
+            bottomColor ?? Colors.blue
           ],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
