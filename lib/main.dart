@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/welcome_screen/welcome_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screen/welcome_screen.dart';
 
 void main() {
   runApp(const MyApp());

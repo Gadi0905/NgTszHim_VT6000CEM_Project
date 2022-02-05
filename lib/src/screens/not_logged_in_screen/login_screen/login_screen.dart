@@ -5,7 +5,8 @@ import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_imag
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/text_button_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/registration_screen/registration_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screen/index_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screen/registration_screen/registration_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -56,7 +57,7 @@ class LoginScreen extends StatelessWidget {
               backgroundColor: Colors.blue,
               textColor: Colors.white,
               onPressItem: () {
-                RoutesHelper.pushScreen(context, const LoginScreen());
+                RoutesHelper.pushScreen(context, const IndexScreen());
               },
             ),
             const SizedBox(height: 10),

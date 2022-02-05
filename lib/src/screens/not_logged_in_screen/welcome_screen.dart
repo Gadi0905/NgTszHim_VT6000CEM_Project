@@ -4,8 +4,8 @@ import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_wid
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/login_screen/login_screen.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/registration_screen/registration_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screen/login_screen/login_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screen/registration_screen/registration_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
