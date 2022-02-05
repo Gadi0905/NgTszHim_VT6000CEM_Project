@@ -5,11 +5,11 @@ import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_imag
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/text_button_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screen/index_screen.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screen/registration_screen/registration_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/index_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screens/login_screen/login_screen.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class RegistrationScreen extends StatelessWidget {
+  const RegistrationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,13 +47,15 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            _buildNameField(),
+            const SizedBox(height: 20),
             _buildEmailField(),
             const SizedBox(height: 20),
             _buildPasswordField(),
             const SizedBox(height: 20),
             ButtonWidget.basicStyle(
               context: context,
-              title: 'Login',
+              title: 'Create an account',
               backgroundColor: Colors.blue,
               textColor: Colors.white,
               onPressItem: () {
@@ -63,15 +65,30 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 10),
             TextButtonWidget.basicStyle(
               context: context,
-              question: 'Do not have an account?',
-              title: 'Register Now',
+              question: 'Already have an account?',
+              title: 'Login Now',
               onPressItem: () {
-                RoutesHelper.pushScreen(context, const RegistrationScreen());
+                RoutesHelper.pushScreen(context, const LoginScreen());
               },
             ),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildNameField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TextFormField(
+          decoration: const InputDecoration(
+            icon: Icon(Icons.person),
+            hintText: 'What do people call you?',
+            labelText: 'Your Name',
+          ),
+        ),
+      ],
     );
   }
 

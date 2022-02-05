@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/account_screen/account_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/home_screen/home_screen.dart';
 
 class IndexScreen extends StatefulWidget {
   const IndexScreen({Key? key}) : super(key: key);
@@ -12,8 +14,8 @@ class IndexScreen extends StatefulWidget {
 class _IndexScreenState extends State<IndexScreen> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
-    Text('Index 0: Home', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-    Text('Index 1: Account', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+    HomeScreen(),
+    AccountScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -43,12 +45,17 @@ class _IndexScreenState extends State<IndexScreen> {
   BottomNavigationBar _buildBottomNavigationBar() {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
         BottomNavigationBarItem(
-            icon: Icon(Icons.account_box), label: 'Account'),
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.account_box),
+          label: 'Account',
+        ),
       ],
       currentIndex: _selectedIndex,
-      selectedItemColor: Colors.amber[800],
+      selectedItemColor: Colors.blue,
       onTap: _onItemTapped,
     );
   }

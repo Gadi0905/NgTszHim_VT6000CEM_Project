@@ -4,8 +4,8 @@ import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_wid
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screen/login_screen/login_screen.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screen/registration_screen/registration_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screens/login_screen/login_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screens/registration_screen/registration_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -24,14 +24,9 @@ class WelcomeScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Spacer(
-            flex: 2,
-          ),
+          const Spacer(flex: 2),
           AssetImageWidget.basicImage(
-            context: context,
-            width: 150,
-            height: 150,
-          ),
+              context: context, width: 150, height: 150),
           const Spacer(),
           _buildWelcomeText(context),
           const Spacer(),
@@ -63,19 +58,13 @@ class WelcomeScreen extends StatelessWidget {
           Text(
             'Planting Prince',
             style: TextStyle(
-              color: Colors.white,
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
+                color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 10),
           Text(
             'Hope you enjoy planting',
             textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 16,
-            ),
+            style: TextStyle(color: Colors.white, fontSize: 16),
           ),
         ],
       ),
