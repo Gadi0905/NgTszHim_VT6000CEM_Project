@@ -8,7 +8,8 @@ class DefaultAppBarWidget {
   }) {
     return AppBar(
       title: Text(title ?? ''),
-      backgroundColor: backgroundColor ?? Colors.blue,
+      elevation: 0.0,
+      backgroundColor: backgroundColor ?? Colors.lightBlueAccent,
     );
   }
 }

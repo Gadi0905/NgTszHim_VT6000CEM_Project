@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/arrow_back_button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/text_button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/login_screen/login_screen.dart';
@@ -14,6 +14,7 @@ class RegistrationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      appBar: DefaultAppBarWidget.basicColor(),
       body: _buildBody(context),
     );
   }
@@ -26,8 +27,6 @@ class RegistrationScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Spacer(),
-            ArrowBackButtonWidget.basicStyle(context: context),
             const Spacer(),
             AssetImageWidget.basicImage(
                 context: context, width: 150, height: 150),
