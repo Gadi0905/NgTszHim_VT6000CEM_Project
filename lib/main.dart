@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Happy planting time',
+      title: 'Planting Prince',
       home: WelcomeScreen(), // initial screen
     );
   }
