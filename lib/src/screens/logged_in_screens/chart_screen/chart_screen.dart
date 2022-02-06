@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class AccountScreen extends StatelessWidget {
-  const AccountScreen({Key? key}) : super(key: key);
+class ChartScreen extends StatelessWidget {
+  const ChartScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return const Text(
-      'Index 2: Account',
+      'Index 1: Chart',
       style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
     );
   }

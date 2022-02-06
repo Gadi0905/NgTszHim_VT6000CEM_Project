@@ -5,7 +5,6 @@ import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_imag
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screens/login_screen/login_screen.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screens/registration_screen/registration_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -33,13 +32,6 @@ class WelcomeScreen extends StatelessWidget {
           ButtonWidget.basicStyle(
               context: context,
               title: 'Getting started',
-              onPressItem: () {
-                RoutesHelper.pushScreen(context, const RegistrationScreen());
-              }),
-          const SizedBox(height: 10),
-          ButtonWidget.basicStyle(
-              context: context,
-              title: 'Login',
               onPressItem: () {
                 RoutesHelper.pushScreen(context, const LoginScreen());
               }),

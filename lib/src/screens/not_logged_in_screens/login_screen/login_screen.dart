@@ -30,7 +30,10 @@ class LoginScreen extends StatelessWidget {
           children: [
             const Spacer(),
             AssetImageWidget.basicImage(
-                context: context, width: 150, height: 150),
+              context: context,
+              width: 150,
+              height: 150,
+            ),
             const Spacer(),
             _buildCard(context),
             const Spacer(),
@@ -43,7 +46,7 @@ class LoginScreen extends StatelessWidget {
   Widget _buildCard(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.all(25.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -60,7 +63,6 @@ class LoginScreen extends StatelessWidget {
                 RoutesHelper.pushScreen(context, const IndexScreen());
               },
             ),
-            const SizedBox(height: 10),
             TextButtonWidget.basicStyle(
               context: context,
               question: 'Do not have an account?',

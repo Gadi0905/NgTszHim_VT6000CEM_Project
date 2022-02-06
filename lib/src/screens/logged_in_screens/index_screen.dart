@@ -4,6 +4,8 @@ import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background
 import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/account_screen/account_screen.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/home_screen/home_screen.dart';
 
+import 'chart_screen/chart_screen.dart';
+
 class IndexScreen extends StatefulWidget {
   const IndexScreen({Key? key}) : super(key: key);
 
@@ -15,6 +17,7 @@ class _IndexScreenState extends State<IndexScreen> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
+    ChartScreen(),
     AccountScreen(),
   ];
 
@@ -48,6 +51,10 @@ class _IndexScreenState extends State<IndexScreen> {
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.bar_chart),
+          label: 'Chart',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.account_box),
