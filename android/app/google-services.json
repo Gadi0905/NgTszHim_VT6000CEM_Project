@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1028203314124",
+    "project_id": "vt6000cemiotproject",
+    "storage_bucket": "vt6000cemiotproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1028203314124:android:7ad1514d1caa0f31ed7b69",
+        "android_client_info": {
+          "package_name": "com.example.ngtszhim_vt6000cem_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1028203314124-5cv2vj75bohs1ce3mkc73gh633i7sq4r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ngtszhim_vt6000cem_project",
+            "certificate_hash": "dec9d1248b59491d7dcc52d21155c6910ae4738c"
+          }
+        },
+        {
+          "client_id": "1028203314124-s8p9ahvv421escc3bj1nvvjo660fam6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXTv2IiinS78yp17e1aKqZvr1mCiP_45s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1028203314124-s8p9ahvv421escc3bj1nvvjo660fam6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
