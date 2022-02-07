@@ -13,30 +13,17 @@ class AccountScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Spacer(),
-          _buildUserIcon(context),
+          AssetImageWidget.basicImage(
+              context: context, height: 150, width: 150),
           const Spacer(),
           _buildUserInfo('User Name: Gadi'),
           const SizedBox(height: 10),
           _buildUserInfo('Email: gadi0905@gmail.com'),
           const Spacer(),
-          ButtonWidget.basicStyle(context: context,title: 'Logout', onPressItem: () {}),
+          ButtonWidget.basicStyle(
+              context: context, title: 'Logout', onPressItem: () {}),
           const Spacer(),
         ],
-      ),
-    );
-  }
-
-  Widget _buildUserIcon(BuildContext context) {
-    return Container(
-      width: 150,
-      height: 150,
-      decoration: const BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.white,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(25.0),
-        child: AssetImageWidget.basicImage(context: context),
       ),
     );
   }
