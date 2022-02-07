@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class DefaultAppBarWidget {
@@ -11,6 +9,15 @@ class DefaultAppBarWidget {
   }) {
     return AppBar(
       title: Text(title ?? ''),
+      actions: <Widget>[
+        IconButton(
+          icon: const Icon(
+            Icons.circle_notifications,
+            size: 30,
+          ),
+          onPressed: () {},
+        )
+      ],
       elevation: 0.0,
       automaticallyImplyLeading: automaticallyImplyLeading ?? true,
       backgroundColor: backgroundColor ?? Colors.lightBlueAccent,
