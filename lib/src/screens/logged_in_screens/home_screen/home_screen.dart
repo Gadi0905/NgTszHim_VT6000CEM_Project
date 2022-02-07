@@ -58,14 +58,23 @@ class HomeScreen extends StatelessWidget {
         height: 80,
         child: Card(
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Text(title ?? 'Card'),
+              const SizedBox(width: 20),
               Icon(
                 icon ?? Icons.home,
                 size: 45,
                 color: color ?? Colors.black,
               ),
+              const SizedBox(width: 20),
+              Text(title ?? 'Card'),
+              const Spacer(),
+              const Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 30,
+                color: Colors.black,
+              ),
+              const SizedBox(width: 20),
             ],
           ),
         ),
