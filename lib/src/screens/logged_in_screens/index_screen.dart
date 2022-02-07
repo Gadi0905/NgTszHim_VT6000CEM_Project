@@ -30,7 +30,9 @@ class _IndexScreenState extends State<IndexScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DefaultAppBarWidget.basicColor(),
+      appBar: DefaultAppBarWidget.basicColor(
+        automaticallyImplyLeading: false,
+      ),
       body: _buildBody(context),
       bottomNavigationBar: _buildBottomNavigationBar(),
     );

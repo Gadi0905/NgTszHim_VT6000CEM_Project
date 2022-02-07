@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
 
@@ -21,7 +22,9 @@ class AccountScreen extends StatelessWidget {
           _buildUserInfo('Email: gadi0905@gmail.com'),
           const Spacer(),
           ButtonWidget.basicStyle(
-              context: context, title: 'Logout', onPressItem: () {}),
+              context: context, title: 'Logout', onPressItem: () {
+                RoutesHelper.pop(context);
+          }),
           const Spacer(),
         ],
       ),
