@@ -14,8 +14,8 @@ class HomeScreen extends StatelessWidget {
           const Spacer(),
           _buildCard(
             title: 'Temperature',
-            icon: Icons.opacity,
-            color: Colors.blue,
+            icon: Icons.thermostat,
+            color: Colors.red,
             onTapItem: () {
               if (kDebugMode) {
                 print('Temperature');
@@ -25,8 +25,8 @@ class HomeScreen extends StatelessWidget {
           const Spacer(),
           _buildCard(
             title: 'Humidity',
-            icon: Icons.thermostat,
-            color: Colors.red,
+            icon: Icons.opacity,
+            color: Colors.blue,
             onTapItem: () {
               if (kDebugMode) {
                 print('Humidity');
@@ -61,19 +61,12 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const SizedBox(width: 20),
-              Icon(
-                icon ?? Icons.home,
-                size: 45,
-                color: color ?? Colors.black,
-              ),
+              Icon(icon ?? Icons.home, size: 45, color: color ?? Colors.black),
               const SizedBox(width: 20),
               Text(title ?? 'Card'),
               const Spacer(),
-              const Icon(
-                Icons.arrow_forward_ios_rounded,
-                size: 30,
-                color: Colors.black,
-              ),
+              const Icon(Icons.arrow_forward_ios_rounded,
+                  size: 30, color: Colors.black),
               const SizedBox(width: 20),
             ],
           ),

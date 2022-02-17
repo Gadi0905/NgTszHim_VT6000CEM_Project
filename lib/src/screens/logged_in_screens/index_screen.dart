@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/account_screen/account_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/chart_screen/chart_screen.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/home_screen/home_screen.dart';
-
-import 'chart_screen/chart_screen.dart';
 
 class IndexScreen extends StatefulWidget {
   const IndexScreen({Key? key}) : super(key: key);

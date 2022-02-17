@@ -28,10 +28,7 @@ class RegistrationScreen extends StatelessWidget {
           children: [
             const Spacer(),
             AssetImageWidget.basicImage(
-              context: context,
-              width: 150,
-              height: 150,
-            ),
+                context: context, width: 150, height: 150),
             const Spacer(),
             _buildCard(context),
             const Spacer(),

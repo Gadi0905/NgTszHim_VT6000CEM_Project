@@ -22,9 +22,11 @@ class AccountScreen extends StatelessWidget {
           _buildUserInfo('Email: gadi0905@gmail.com'),
           const Spacer(),
           ButtonWidget.basicStyle(
-              context: context, title: 'Logout', onPressItem: () {
+              context: context,
+              title: 'Logout',
+              onPressItem: () {
                 RoutesHelper.pop(context);
-          }),
+              }),
           const Spacer(),
         ],
       ),

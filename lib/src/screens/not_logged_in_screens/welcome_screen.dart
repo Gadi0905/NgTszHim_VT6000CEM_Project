@@ -30,11 +30,12 @@ class WelcomeScreen extends StatelessWidget {
           _buildWelcomeText(context),
           const Spacer(),
           ButtonWidget.basicStyle(
-              context: context,
-              title: 'Getting started',
-              onPressItem: () {
-                RoutesHelper.pushScreen(context, const LoginScreen());
-              }),
+            context: context,
+            title: 'Getting started',
+            onPressItem: () {
+              RoutesHelper.pushScreen(context, const LoginScreen());
+            },
+          ),
           const Spacer(),
         ],
       ),
