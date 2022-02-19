@@ -1,5 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/home_screen/humidity_screen/humidity_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/home_screen/temperature_screen/temperature_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,35 +15,20 @@ class HomeScreen extends StatelessWidget {
         children: [
           const Spacer(),
           _buildCard(
-            title: 'Temperature',
+            title: '31c',
             icon: Icons.thermostat,
             color: Colors.red,
             onTapItem: () {
-              if (kDebugMode) {
-                print('Temperature');
-              }
+              RoutesHelper.pushScreen(context, const TemperatureScreen());
             },
           ),
           const Spacer(),
           _buildCard(
-            title: 'Humidity',
+            title: '70%',
             icon: Icons.opacity,
             color: Colors.blue,
             onTapItem: () {
-              if (kDebugMode) {
-                print('Humidity');
-              }
-            },
-          ),
-          const Spacer(),
-          _buildCard(
-            title: 'Sunlight',
-            icon: Icons.wb_sunny_rounded,
-            color: Colors.orange,
-            onTapItem: () {
-              if (kDebugMode) {
-                print('Sunlight');
-              }
+              RoutesHelper.pushScreen(context, const HumidityScreen());
             },
           ),
           const Spacer(),
@@ -50,8 +37,12 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCard(
-      {String? title, IconData? icon, Color? color, Function()? onTapItem}) {
+  Widget _buildCard({
+    String? title,
+    IconData? icon,
+    Color? color,
+    Function()? onTapItem,
+  }) {
     return InkWell(
       onTap: onTapItem,
       child: SizedBox(
@@ -63,7 +54,10 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(width: 20),
               Icon(icon ?? Icons.home, size: 45, color: color ?? Colors.black),
               const SizedBox(width: 20),
-              Text(title ?? 'Card'),
+              Text(
+                title ?? 'Card',
+                style: const TextStyle(fontSize: 20),
+              ),
               const Spacer(),
               const Icon(Icons.arrow_forward_ios_rounded,
                   size: 30, color: Colors.black),
