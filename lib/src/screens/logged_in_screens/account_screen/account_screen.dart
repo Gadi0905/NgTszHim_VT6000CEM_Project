@@ -4,8 +4,15 @@ import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_help
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
 
-class AccountScreen extends StatelessWidget {
+class AccountScreen extends StatefulWidget {
   const AccountScreen({Key? key}) : super(key: key);
+
+  @override
+  State<AccountScreen> createState() => _AccountScreenState();
+}
+
+class _AccountScreenState extends State<AccountScreen> {
+  String errorMessage = '';
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +33,16 @@ class AccountScreen extends StatelessWidget {
               context: context,
               title: 'Logout',
               onPressItem: () async {
-                await FirebaseAuth.instance.signOut();
-                RoutesHelper.pop(context);
+                try {
+                  await FirebaseAuth.instance.signOut();
+                  RoutesHelper.pop(context);
+                  errorMessage = '';
+                } on FirebaseAuthException catch (error) {
+                  errorMessage = error.message!;
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text(errorMessage)),
+                  );
+                }
               }),
           const Spacer(),
         ],

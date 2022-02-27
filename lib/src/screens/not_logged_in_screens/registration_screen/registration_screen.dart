@@ -17,9 +17,13 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  String errorMessage = '';
 
   @override
   Widget build(BuildContext context) {
+    User? user = FirebaseAuth.instance.currentUser;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: DefaultAppBarWidget.basicColor(),
@@ -48,30 +52,44 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   }
 
   Widget _buildCard(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(25.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            _buildEmailField(),
-            const SizedBox(height: 20),
-            _buildPasswordField(),
-            const SizedBox(height: 20),
-            ButtonWidget.basicStyle(
-              context: context,
-              title: 'Create an account',
-              backgroundColor: Colors.blue,
-              textColor: Colors.white,
-              onPressItem: () async {
-                await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                    email: emailController.text,
-                    password: passwordController.text,
-                );
-                RoutesHelper.pushScreen(context, const IndexScreen());
-              },
-            ),
-          ],
+    return Form(
+      key: _key,
+      child: Card(
+        child: Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              _buildEmailField(),
+              const SizedBox(height: 20),
+              _buildPasswordField(),
+              const SizedBox(height: 20),
+              ButtonWidget.basicStyle(
+                context: context,
+                title: 'Create an account',
+                backgroundColor: Colors.blue,
+                textColor: Colors.white,
+                onPressItem: () async {
+                  if (_key.currentState!.validate()) {
+                    try {
+                      await FirebaseAuth.instance
+                          .createUserWithEmailAndPassword(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
+                      RoutesHelper.pushScreen(context, const IndexScreen());
+                      errorMessage = '';
+                    } on FirebaseAuthException catch (error) {
+                      errorMessage = error.message!;
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(errorMessage)),
+                      );
+                    }
+                  }
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -83,6 +101,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       children: [
         TextFormField(
           controller: emailController,
+          validator: validateEmail,
           decoration: const InputDecoration(
             icon: Icon(Icons.email),
             hintText: 'What is your email address?',
@@ -99,6 +118,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       children: [
         TextFormField(
           controller: passwordController,
+          validator: validatePassword,
           decoration: const InputDecoration(
             icon: Icon(Icons.password),
             hintText: 'What is your password?',
@@ -108,4 +128,33 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       ],
     );
   }
+}
+
+String? validateEmail(String? formEmail) {
+  if (formEmail == null || formEmail.isEmpty) {
+    return 'E-mail address is required';
+  }
+  String pattern = r'\w+@\w+\.\w+';
+  RegExp regExp = RegExp(pattern);
+  if (!regExp.hasMatch(formEmail)) {
+    return 'Invalid E-mail address format';
+  }
+  return null;
+}
+
+String? validatePassword(String? formPassword) {
+  if (formPassword == null || formPassword.isEmpty) {
+    return 'Password is required';
+  }
+  String pattern =
+      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$';
+  RegExp regExp = RegExp(pattern);
+  if (!regExp.hasMatch(formPassword)) {
+    return '''
+    Password must be at least 8 characters, 
+    include an uppercase letter, 
+    number and symbol.
+    ''';
+  }
+  return null;
 }
