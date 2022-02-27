@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
@@ -24,7 +25,8 @@ class AccountScreen extends StatelessWidget {
           ButtonWidget.basicStyle(
               context: context,
               title: 'Logout',
-              onPressItem: () {
+              onPressItem: () async {
+                await FirebaseAuth.instance.signOut();
                 RoutesHelper.pop(context);
               }),
           const Spacer(),

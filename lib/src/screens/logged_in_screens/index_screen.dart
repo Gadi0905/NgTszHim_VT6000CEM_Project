@@ -27,6 +27,7 @@ class _IndexScreenState extends State<IndexScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: DefaultAppBarWidget.basicColor(
         automaticallyImplyLeading: false,
       ),

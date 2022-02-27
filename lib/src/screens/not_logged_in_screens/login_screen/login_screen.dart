@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
@@ -8,8 +9,16 @@ import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_wid
 import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/index_screen.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screens/registration_screen/registration_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +39,7 @@ class LoginScreen extends StatelessWidget {
           children: [
             const Spacer(),
             AssetImageWidget.basicImage(
-              context: context,
-              width: 150,
-              height: 150,
-            ),
+                context: context, width: 150, height: 150),
             const Spacer(),
             _buildCard(context),
             const Spacer(),
@@ -59,7 +65,11 @@ class LoginScreen extends StatelessWidget {
               title: 'Login',
               backgroundColor: Colors.blue,
               textColor: Colors.white,
-              onPressItem: () {
+              onPressItem: () async {
+                await FirebaseAuth.instance.signInWithEmailAndPassword(
+                  email: emailController.text,
+                  password: passwordController.text,
+                );
                 RoutesHelper.pushScreen(context, const IndexScreen());
               },
             ),
@@ -82,6 +92,7 @@ class LoginScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextFormField(
+          controller: emailController,
           decoration: const InputDecoration(
             icon: Icon(Icons.email),
             hintText: 'What is your email address?',
@@ -97,6 +108,7 @@ class LoginScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextFormField(
+          controller: passwordController,
           decoration: const InputDecoration(
             icon: Icon(Icons.password),
             hintText: 'What is your password?',

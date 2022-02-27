@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
@@ -6,8 +7,16 @@ import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/index_screen.dart';
 
-class RegistrationScreen extends StatelessWidget {
+class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
+
+  @override
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
+}
+
+class _RegistrationScreenState extends State<RegistrationScreen> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +50,10 @@ class RegistrationScreen extends StatelessWidget {
   Widget _buildCard(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.all(25.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _buildNameField(),
-            const SizedBox(height: 20),
             _buildEmailField(),
             const SizedBox(height: 20),
             _buildPasswordField(),
@@ -56,7 +63,11 @@ class RegistrationScreen extends StatelessWidget {
               title: 'Create an account',
               backgroundColor: Colors.blue,
               textColor: Colors.white,
-              onPressItem: () {
+              onPressItem: () async {
+                await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                    email: emailController.text,
+                    password: passwordController.text,
+                );
                 RoutesHelper.pushScreen(context, const IndexScreen());
               },
             ),
@@ -66,26 +77,12 @@ class RegistrationScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildNameField() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        TextFormField(
-          decoration: const InputDecoration(
-            icon: Icon(Icons.person),
-            hintText: 'What do people call you?',
-            labelText: 'Your Name',
-          ),
-        ),
-      ],
-    );
-  }
-
   Widget _buildEmailField() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextFormField(
+          controller: emailController,
           decoration: const InputDecoration(
             icon: Icon(Icons.email),
             hintText: 'What is your email address?',
@@ -101,6 +98,7 @@ class RegistrationScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextFormField(
+          controller: passwordController,
           decoration: const InputDecoration(
             icon: Icon(Icons.password),
             hintText: 'What is your password?',

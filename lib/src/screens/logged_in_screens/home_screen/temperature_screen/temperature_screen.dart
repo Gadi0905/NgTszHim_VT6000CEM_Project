@@ -58,8 +58,8 @@ class TemperatureScreen extends StatelessWidget {
       series: <ChartSeries<_TempData, String>>[
         LineSeries<_TempData, String>(
           dataSource: data,
-          xValueMapper: (_TempData sales, _) => sales.hour,
-          yValueMapper: (_TempData sales, _) => sales.temp,
+          xValueMapper: (_TempData temperature, _) => temperature.hour,
+          yValueMapper: (_TempData temperature, _) => temperature.temp,
           name: 'Temp',
           dataLabelSettings: const DataLabelSettings(isVisible: true),
         )
