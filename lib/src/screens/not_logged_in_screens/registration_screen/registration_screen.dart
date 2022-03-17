@@ -5,7 +5,6 @@ import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_wid
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/index_screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -22,8 +21,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    User? user = FirebaseAuth.instance.currentUser;
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: DefaultAppBarWidget.basicColor(),
@@ -127,7 +124,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               email: emailController.text,
               password: passwordController.text,
             );
-            RoutesHelper.pushScreen(context, const IndexScreen());
+            RoutesHelper.goToIndex(context);
             errorMessage = '';
           } on FirebaseAuthException catch (error) {
             errorMessage = error.message!;

@@ -67,7 +67,7 @@ class _AccountScreenState extends State<AccountScreen> {
       onPressItem: () async {
         try {
           await FirebaseAuth.instance.signOut();
-          RoutesHelper.pop(context);
+          RoutesHelper.goToWelcome(context);
           errorMessage = '';
         } on FirebaseAuthException catch (error) {
           errorMessage = error.message!;

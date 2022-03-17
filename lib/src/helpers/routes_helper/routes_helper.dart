@@ -25,4 +25,17 @@ class RoutesHelper {
   static popToRoot(context) {
     Navigator.of(context).popUntil((route) => route.isFirst);
   }
+
+  static pushAndRemoveUntil(context, routeName, {Object? arguments}) {
+    Navigator.pushNamedAndRemoveUntil(context, routeName, (route) => false,
+        arguments: arguments);
+  }
+
+  static goToWelcome(context) {
+    pushAndRemoveUntil(context, RoutesConstants.welcome);
+  }
+
+  static goToIndex(context) {
+    pushAndRemoveUntil(context, RoutesConstants.index);
+  }
 }
