@@ -22,31 +22,24 @@ class _AccountScreenState extends State<AccountScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Spacer(),
-          AssetImageWidget.basicImage(
-              context: context, height: 150, width: 150),
+          _buildImage(context),
           const Spacer(),
           _buildUserInfo('User Name: Gadi'),
           const SizedBox(height: 10),
           _buildUserInfo('Email: gadi0905@gmail.com'),
           const Spacer(),
-          ButtonWidget.basicStyle(
-              context: context,
-              title: 'Logout',
-              onPressItem: () async {
-                try {
-                  await FirebaseAuth.instance.signOut();
-                  RoutesHelper.pop(context);
-                  errorMessage = '';
-                } on FirebaseAuthException catch (error) {
-                  errorMessage = error.message!;
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(errorMessage)),
-                  );
-                }
-              }),
+          _buildLogoutButton(),
           const Spacer(),
         ],
       ),
+    );
+  }
+
+  Widget _buildImage(BuildContext context) {
+    return AssetImageWidget.basicImage(
+      context: context,
+      width: 150,
+      height: 150,
     );
   }
 
@@ -64,6 +57,25 @@ class _AccountScreenState extends State<AccountScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildLogoutButton() {
+    return ButtonWidget.basicStyle(
+      context: context,
+      title: 'Logout',
+      onPressItem: () async {
+        try {
+          await FirebaseAuth.instance.signOut();
+          RoutesHelper.pop(context);
+          errorMessage = '';
+        } on FirebaseAuthException catch (error) {
+          errorMessage = error.message!;
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(errorMessage)),
+          );
+        }
+      },
     );
   }
 }

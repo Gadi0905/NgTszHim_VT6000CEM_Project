@@ -24,24 +24,22 @@ class WelcomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Spacer(flex: 2),
-          AssetImageWidget.basicImage(
-            context: context,
-            width: 150,
-            height: 150,
-          ),
+          _buildImage(context),
           const Spacer(),
           _buildWelcomeText(context),
           const Spacer(),
-          ButtonWidget.basicStyle(
-            context: context,
-            title: 'Getting started',
-            onPressItem: () {
-              RoutesHelper.pushScreen(context, const LoginScreen());
-            },
-          ),
+          _buildButton(context),
           const Spacer(),
         ],
       ),
+    );
+  }
+
+  Widget _buildImage(BuildContext context) {
+    return AssetImageWidget.basicImage(
+      context: context,
+      width: 150,
+      height: 150,
     );
   }
 
@@ -64,6 +62,16 @@ class WelcomeScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _buildButton(BuildContext context) {
+    return ButtonWidget.basicStyle(
+      context: context,
+      title: 'Getting started',
+      onPressItem: () {
+        RoutesHelper.pushScreen(context, const LoginScreen());
+      },
     );
   }
 }

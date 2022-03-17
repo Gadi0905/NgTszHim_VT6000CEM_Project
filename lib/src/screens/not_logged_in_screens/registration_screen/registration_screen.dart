@@ -40,14 +40,21 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Spacer(),
-            AssetImageWidget.basicImage(
-                context: context, width: 150, height: 150),
+            _buildImage(context),
             const Spacer(),
             _buildCard(context),
             const Spacer(),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildImage(BuildContext context) {
+    return AssetImageWidget.basicImage(
+      context: context,
+      width: 150,
+      height: 150,
     );
   }
 
@@ -64,30 +71,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               const SizedBox(height: 20),
               _buildPasswordField(),
               const SizedBox(height: 20),
-              ButtonWidget.basicStyle(
-                context: context,
-                title: 'Create an account',
-                backgroundColor: Colors.blue,
-                textColor: Colors.white,
-                onPressItem: () async {
-                  if (_key.currentState!.validate()) {
-                    try {
-                      await FirebaseAuth.instance
-                          .createUserWithEmailAndPassword(
-                        email: emailController.text,
-                        password: passwordController.text,
-                      );
-                      RoutesHelper.pushScreen(context, const IndexScreen());
-                      errorMessage = '';
-                    } on FirebaseAuthException catch (error) {
-                      errorMessage = error.message!;
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(errorMessage)),
-                      );
-                    }
-                  }
-                },
-              ),
+              _buildRegisterButton(),
             ],
           ),
         ),
@@ -126,6 +110,33 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildRegisterButton() {
+    return ButtonWidget.basicStyle(
+      context: context,
+      title: 'Create an account',
+      backgroundColor: Colors.blue,
+      textColor: Colors.white,
+      onPressItem: () async {
+        if (_key.currentState!.validate()) {
+          try {
+            await FirebaseAuth.instance
+                .createUserWithEmailAndPassword(
+              email: emailController.text,
+              password: passwordController.text,
+            );
+            RoutesHelper.pushScreen(context, const IndexScreen());
+            errorMessage = '';
+          } on FirebaseAuthException catch (error) {
+            errorMessage = error.message!;
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(errorMessage)),
+            );
+          }
+        }
+      },
     );
   }
 }

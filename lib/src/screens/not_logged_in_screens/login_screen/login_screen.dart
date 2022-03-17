@@ -42,14 +42,21 @@ class _LoginScreenState extends State<LoginScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Spacer(),
-            AssetImageWidget.basicImage(
-                context: context, width: 150, height: 150),
+            _buildImage(context),
             const Spacer(),
             _buildCard(context),
             const Spacer(),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildImage(BuildContext context) {
+    return AssetImageWidget.basicImage(
+      context: context,
+      width: 150,
+      height: 150,
     );
   }
 
@@ -66,37 +73,8 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 20),
               _buildPasswordField(),
               const SizedBox(height: 20),
-              ButtonWidget.basicStyle(
-                context: context,
-                title: 'Login',
-                backgroundColor: Colors.blue,
-                textColor: Colors.white,
-                onPressItem: () async {
-                  if (_key.currentState!.validate()) {
-                    try {
-                      await FirebaseAuth.instance.signInWithEmailAndPassword(
-                        email: emailController.text,
-                        password: passwordController.text,
-                      );
-                      RoutesHelper.pushScreen(context, const IndexScreen());
-                      errorMessage = '';
-                    } on FirebaseAuthException catch (error) {
-                      errorMessage = error.message!;
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(errorMessage)),
-                      );
-                    }
-                  }
-                },
-              ),
-              TextButtonWidget.basicStyle(
-                context: context,
-                question: 'Do not have an account?',
-                title: 'Register Now',
-                onPressItem: () {
-                  RoutesHelper.pushScreen(context, const RegistrationScreen());
-                },
-              ),
+              _buildLoginButton(),
+              _buildTextButton(),
             ],
           ),
         ),
@@ -135,6 +113,43 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildLoginButton() {
+    return ButtonWidget.basicStyle(
+      context: context,
+      title: 'Login',
+      backgroundColor: Colors.blue,
+      textColor: Colors.white,
+      onPressItem: () async {
+        if (_key.currentState!.validate()) {
+          try {
+            await FirebaseAuth.instance.signInWithEmailAndPassword(
+              email: emailController.text,
+              password: passwordController.text,
+            );
+            RoutesHelper.pushScreen(context, const IndexScreen());
+            errorMessage = '';
+          } on FirebaseAuthException catch (error) {
+            errorMessage = error.message!;
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(errorMessage)),
+            );
+          }
+        }
+      },
+    );
+  }
+
+  Widget _buildTextButton() {
+    return TextButtonWidget.basicStyle(
+      context: context,
+      question: 'Do not have an account?',
+      title: 'Register Now',
+      onPressItem: () {
+        RoutesHelper.pushScreen(context, const RegistrationScreen());
+      },
     );
   }
 }

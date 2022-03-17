@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_constants.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/index_screen.dart';
+import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screens/welcome_screen.dart';
 
 class RoutesHelper {
+  static getCustomRoutes() {
+    return <String, WidgetBuilder>{
+      RoutesConstants.welcome: (context) => const WelcomeScreen(),
+      RoutesConstants.index: (context) => const IndexScreen(),
+    };
+  }
+
   // go to a specific page
   static pushScreen(context, Widget screen) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => screen));
