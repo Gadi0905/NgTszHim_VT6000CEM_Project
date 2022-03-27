@@ -116,25 +116,29 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       title: 'Create an account',
       backgroundColor: Colors.blue,
       textColor: Colors.white,
-      onPressItem: () async {
-        if (_key.currentState!.validate()) {
-          try {
-            await FirebaseAuth.instance
-                .createUserWithEmailAndPassword(
-              email: emailController.text,
-              password: passwordController.text,
-            );
-            RoutesHelper.goToIndex(context);
-            errorMessage = '';
-          } on FirebaseAuthException catch (error) {
-            errorMessage = error.message!;
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(errorMessage)),
-            );
-          }
-        }
+      onPressItem: () {
+        register();
       },
     );
+  }
+
+  Future register() async {
+    if (_key.currentState!.validate()) {
+      try {
+         await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text,
+        );
+        RoutesHelper.goToIndex(context);
+        errorMessage = '';
+      } on FirebaseAuthException catch (error) {
+        errorMessage = error.message!;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(errorMessage)),
+        );
+      }
+    }
   }
 }
 

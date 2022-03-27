@@ -15,6 +15,11 @@ class _AccountScreenState extends State<AccountScreen> {
   String errorMessage = '';
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(30.0),
@@ -64,18 +69,22 @@ class _AccountScreenState extends State<AccountScreen> {
     return ButtonWidget.basicStyle(
       context: context,
       title: 'Logout',
-      onPressItem: () async {
-        try {
-          await FirebaseAuth.instance.signOut();
-          RoutesHelper.goToWelcome(context);
-          errorMessage = '';
-        } on FirebaseAuthException catch (error) {
-          errorMessage = error.message!;
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(errorMessage)),
-          );
-        }
+      onPressItem: () {
+        logout();
       },
     );
+  }
+
+  Future logout() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      RoutesHelper.goToWelcome(context);
+      errorMessage = '';
+    } on FirebaseAuthException catch (error) {
+      errorMessage = error.message!;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(errorMessage)),
+      );
+    }
   }
 }

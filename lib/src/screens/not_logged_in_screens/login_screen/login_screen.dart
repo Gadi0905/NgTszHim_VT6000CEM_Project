@@ -119,22 +119,8 @@ class _LoginScreenState extends State<LoginScreen> {
       title: 'Login',
       backgroundColor: Colors.blue,
       textColor: Colors.white,
-      onPressItem: () async {
-        if (_key.currentState!.validate()) {
-          try {
-            await FirebaseAuth.instance.signInWithEmailAndPassword(
-              email: emailController.text,
-              password: passwordController.text,
-            );
-            RoutesHelper.goToIndex(context);
-            errorMessage = '';
-          } on FirebaseAuthException catch (error) {
-            errorMessage = error.message!;
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(errorMessage)),
-            );
-          }
-        }
+      onPressItem: () {
+        login();
       },
     );
   }
@@ -148,6 +134,24 @@ class _LoginScreenState extends State<LoginScreen> {
         RoutesHelper.pushScreen(context, const RegistrationScreen());
       },
     );
+  }
+
+  Future login() async {
+    if (_key.currentState!.validate()) {
+      try {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text,
+        );
+        RoutesHelper.goToIndex(context);
+        errorMessage = '';
+      } on FirebaseAuthException catch (error) {
+        errorMessage = error.message!;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(errorMessage)),
+        );
+      }
+    }
   }
 }
 
