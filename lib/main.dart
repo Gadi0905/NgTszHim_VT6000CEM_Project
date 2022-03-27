@@ -1,14 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/providers_helper/user_provider.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/logged_in_screens/index_screen.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screens/welcome_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (context) => UserProvider()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     User? user = FirebaseAuth.instance.currentUser;
-    if(user != null) {
+    if (user != null) {
       return MaterialApp(
         title: 'Planting Prince',
         routes: RoutesHelper.getCustomRoutes(),
