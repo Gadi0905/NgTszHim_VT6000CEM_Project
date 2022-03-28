@@ -48,6 +48,7 @@ class HomeScreen extends StatelessWidget {
       child: SizedBox(
         height: 80,
         child: Card(
+          elevation: 10,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [

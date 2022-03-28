@@ -6,7 +6,8 @@ class Loading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if(isFullScreen){
+    // check if it is full screen
+    if (isFullScreen) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
     return const Center(child: CircularProgressIndicator());

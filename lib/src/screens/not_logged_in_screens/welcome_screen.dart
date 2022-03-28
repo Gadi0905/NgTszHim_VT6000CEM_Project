@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/screens/not_logged_in_screens/login_screen/login_screen.dart';
@@ -12,7 +10,6 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DefaultAppBarWidget.basicColor(),
       body: _buildBody(context),
     );
   }
@@ -24,22 +21,12 @@ class WelcomeScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           const Spacer(flex: 2),
-          _buildImage(context),
-          const Spacer(),
           _buildWelcomeText(context),
-          const Spacer(),
+          const Spacer(flex: 2),
           _buildButton(context),
           const Spacer(),
         ],
       ),
-    );
-  }
-
-  Widget _buildImage(BuildContext context) {
-    return AssetImageWidget.basicImage(
-      context: context,
-      width: 150,
-      height: 150,
     );
   }
 
@@ -52,13 +39,13 @@ class WelcomeScreen extends StatelessWidget {
           Text(
             'Planting Prince',
             style: TextStyle(
-                color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+                color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 10),
           Text(
             'Hope you enjoy planting',
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white, fontSize: 16),
+            style: TextStyle(color: Colors.black, fontSize: 20),
           ),
         ],
       ),

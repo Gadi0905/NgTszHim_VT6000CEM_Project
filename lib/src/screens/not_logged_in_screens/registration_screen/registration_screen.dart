@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/appbar_widget/default_appbar_widget.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/background_widget/default_background_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
 
@@ -25,7 +23,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: DefaultAppBarWidget.basicColor(),
       body: _buildBody(context),
     );
   }
@@ -39,7 +36,15 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const Spacer(),
-            _buildImage(context),
+            _buildBackButton(context),
+            const Spacer(),
+            const Text(
+              'Planting Prince',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold),
+            ),
             const Spacer(),
             _buildCard(context),
             const Spacer(),
@@ -49,11 +54,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     );
   }
 
-  Widget _buildImage(BuildContext context) {
-    return AssetImageWidget.basicImage(
-      context: context,
-      width: 150,
-      height: 150,
+  Widget _buildBackButton(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        IconButton(
+          iconSize: 30,
+          icon: const Icon(Icons.arrow_back_ios_new_rounded),
+          onPressed: () {
+            RoutesHelper.pop(context);
+          },
+        )
+      ],
     );
   }
 
@@ -61,6 +73,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     return Form(
       key: _key,
       child: Card(
+        elevation: 10,
         child: Padding(
           padding: const EdgeInsets.all(25.0),
           child: Column(

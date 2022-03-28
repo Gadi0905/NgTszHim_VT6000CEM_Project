@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/firebase_helper/model_helper/user_model/user_model.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/firebase_helper/services_helper/user_services.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/asset_image_widget/asset_image_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/loading_widget/loading_widget.dart';
 
@@ -44,8 +43,6 @@ class _AccountScreenState extends State<AccountScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Spacer(),
-              _buildImage(context),
-              const Spacer(),
               _buildUserInfo('User Name: ${userModel.userName}'),
               const SizedBox(height: 10),
               _buildUserInfo('Email: ${userModel.userEmail}'),
@@ -59,18 +56,11 @@ class _AccountScreenState extends State<AccountScreen> {
     );
   }
 
-  Widget _buildImage(BuildContext context) {
-    return AssetImageWidget.basicImage(
-      context: context,
-      width: 150,
-      height: 150,
-    );
-  }
-
   Widget _buildUserInfo(String title) {
     return SizedBox(
       height: 60,
       child: Card(
+        elevation: 10,
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Row(

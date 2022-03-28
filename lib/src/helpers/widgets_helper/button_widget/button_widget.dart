@@ -15,6 +15,11 @@ class ButtonWidget {
       child: ElevatedButton(
         onPressed: onPressItem,
         style: ButtonStyle(
+          elevation: MaterialStateProperty.resolveWith<double>(
+            (Set<MaterialState> states) {
+              return 10;
+            },
+          ),
           backgroundColor:
               MaterialStateProperty.all(backgroundColor ?? Colors.white),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(

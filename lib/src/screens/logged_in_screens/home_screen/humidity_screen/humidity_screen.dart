@@ -50,7 +50,8 @@ class HumidityScreen extends StatelessWidget {
                 LineSeries<_HumidityData, String>(
                   dataSource: data,
                   xValueMapper: (_HumidityData humidity, _) => humidity.hour,
-                  yValueMapper: (_HumidityData humidity, _) => humidity.humidity,
+                  yValueMapper: (_HumidityData humidity, _) =>
+                      humidity.humidity,
                   name: 'Humidity',
                   dataLabelSettings: const DataLabelSettings(isVisible: true),
                 )

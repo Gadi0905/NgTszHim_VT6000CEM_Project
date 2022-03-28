@@ -26,15 +26,18 @@ class RoutesHelper {
     Navigator.of(context).popUntil((route) => route.isFirst);
   }
 
+  // go to a specific page and remove all previous page
   static pushAndRemoveUntil(context, routeName, {Object? arguments}) {
     Navigator.pushNamedAndRemoveUntil(context, routeName, (route) => false,
         arguments: arguments);
   }
 
+  // go to a welcome page
   static goToWelcome(context) {
     pushAndRemoveUntil(context, RoutesConstants.welcome);
   }
 
+  // go to a index page
   static goToIndex(context) {
     pushAndRemoveUntil(context, RoutesConstants.index);
   }

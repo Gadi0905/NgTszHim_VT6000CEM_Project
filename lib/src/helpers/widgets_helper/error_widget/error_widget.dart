@@ -8,6 +8,14 @@ class ErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: appBar, body: Center(child: Text(errorMessage)));
+    return Scaffold(
+      appBar: appBar,
+      body: Center(
+        child: Text(
+          errorMessage,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
   }
 }

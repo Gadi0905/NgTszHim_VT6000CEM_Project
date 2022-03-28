@@ -10,9 +10,9 @@ class AssetImageWidget {
     double? height,
   }) {
     return Image.asset(
-      ImagesPathHelper.imagePath(image ?? 'tree_seedlings.png'),
-      width: width ?? 100,
-      height: height ?? 100,
+      ImagesPathHelper.imagePath(image ?? 'app_logo.png'),
+      width: width ?? 200,
+      height: height ?? 200,
     );
   }
 }
