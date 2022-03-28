@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
@@ -14,6 +15,7 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
@@ -64,6 +66,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              _buildNameField(),
+              const SizedBox(height: 20),
               _buildEmailField(),
               const SizedBox(height: 20),
               _buildPasswordField(),
@@ -73,6 +77,23 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildNameField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TextFormField(
+          controller: nameController,
+          validator: validateName,
+          decoration: const InputDecoration(
+            icon: Icon(Icons.contacts),
+            hintText: 'What is your name?',
+            labelText: 'Name',
+          ),
+        ),
+      ],
     );
   }
 
@@ -125,10 +146,26 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Future register() async {
     if (_key.currentState!.validate()) {
       try {
-         await FirebaseAuth.instance
+        await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
           email: emailController.text,
           password: passwordController.text,
+        )
+            .then(
+          (value) async {
+            User? user = FirebaseAuth.instance.currentUser;
+            await FirebaseFirestore.instance
+                .collection('users')
+                .doc(user?.uid)
+                .set(
+              {
+                'userId': user?.uid,
+                'userName': nameController.text,
+                'userEmail': emailController.text,
+                'userPassword': passwordController.text,
+              },
+            );
+          },
         );
         RoutesHelper.goToIndex(context);
         errorMessage = '';
@@ -140,6 +177,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       }
     }
   }
+}
+
+String? validateName(String? formName) {
+  if (formName == null || formName.isEmpty) {
+    return 'Name is required';
+  }
+  return null;
 }
 
 String? validateEmail(String? formEmail) {
