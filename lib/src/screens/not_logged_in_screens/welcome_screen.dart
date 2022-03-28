@@ -39,13 +39,20 @@ class WelcomeScreen extends StatelessWidget {
           Text(
             'Planting Prince',
             style: TextStyle(
-                color: Colors.black, fontSize: 40, fontWeight: FontWeight.bold),
+              color: Colors.black,
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           SizedBox(height: 10),
           Text(
             'Hope you enjoy planting',
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.black, fontSize: 20),
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ],
       ),

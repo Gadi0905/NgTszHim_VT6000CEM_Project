@@ -38,13 +38,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             const Spacer(),
             _buildBackButton(context),
             const Spacer(),
-            const Text(
-              'Planting Prince',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold),
-            ),
+            _buildTitle(),
             const Spacer(),
             _buildCard(context),
             const Spacer(),
@@ -66,6 +60,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           },
         )
       ],
+    );
+  }
+
+  Widget _buildTitle() {
+    return const Text(
+      'Planting Prince',
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 40,
+        fontWeight: FontWeight.bold,
+      ),
     );
   }
 

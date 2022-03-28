@@ -57,7 +57,10 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(width: 20),
               Text(
                 title ?? 'Card',
-                style: const TextStyle(fontSize: 20),
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               const Spacer(),
               const Icon(Icons.arrow_forward_ios_rounded,
