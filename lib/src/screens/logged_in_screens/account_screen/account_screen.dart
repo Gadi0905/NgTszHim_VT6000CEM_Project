@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/firebase_helper/model_helper/user_model/user_model.dart';
-import 'package:ngtszhim_vt6000cem_project/src/helpers/firebase_helper/services_helper/user_services.dart';
+import 'package:ngtszhim_vt6000cem_project/src/helpers/firebase_helper/services_helper/user_services/user_services.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/routes_helper/routes_helper.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/button_widget/button_widget.dart';
 import 'package:ngtszhim_vt6000cem_project/src/helpers/widgets_helper/loading_widget/loading_widget.dart';
